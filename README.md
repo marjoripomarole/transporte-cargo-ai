@@ -1,29 +1,53 @@
 transporte-cargo-ai
 ===================
 
-Necessidade de transportar o maior número possível de containers pela
-plataforma de transporte do porto para o navio cargueiro.
-
 ## Cenário
   
-Necessidade de transportar o maior número possível de containers pela plataforma
-de transporte do porto para o navio cargueiro.
+Necessidade de transportar containers pela plataforma de transporte do porto
+em menor viagens possíveis para o navio cargueiro.
 
 ## Especificação do Problema
 
 A plataforma de transporte possue restrições quanto ao peso e volume máximos
-transportados. Os containers variam em seus volumes.
+transportados. Os containers variam em seus pesos.
 
 Temos de buscar a melhor combinação entre os containers transportados por
 uma determinada vez na plataforma, de forma que sempre sejam transportados
 o maior número possível dos mesmos, garantindo um menor número de
 viagens da plataforma e a segurança no transporte da mesma, isto é, não
-podem ser ultrapassados a carga máxima nem o volume máximo especificados
-pela plataforma de transporte. Exemplo: não há vantagem em transportar primeiro
-os containers mais leves, deixando os mais pesados por último, pois no começo
-transportaremos o maior número possível de containers mas, no final, somente
-um pequeno número de containers será transportado em função do excesso de peso.
+podem ser ultrapassados a carga máxima especificados
+pela plataforma de transporte.
 
-### Implementação 
+Não há vantagem em transportar primeiro os containers mais leves,
+deixando os mais pesados por último, pois no começo transportaremos o maior 
+número possível de containers mas, no final, somente um pequeno número de
+containers será transportado em função do excesso de peso.
 
-Usando Best First Algorithm.
+## Implementação 
+
+### Busca Não Informada
+
+Consiste em fazer uma Busca em largura em todas as possiveis permutações
+dos grupos de containers e achar a permutação que não viola a restrição de peso
+máximo em cada grupo e tem o menos numeros de grupos de containers(plataformas).
+
+### Busca Heurística
+
+Usando algoritmo do Best First.
+
+Ver vídeo para entender: https://www.youtube.com/watch?v=vUxhAmfXs2o
+
+### Como rodar
+
+Linguagem: prolog.
+Compilador: swi-prolog.
+
+Em ambiente GNU/Unix com swipl instalado, rode:
+
+swipl -f busca_heuristica.pl
+swipl -f busca_nao_informada.pl
+
+TODO
+* Explicação extensa da solução
+* Uma explicação clara da modelagem de estados;
+* As justificativas para as escolhas dos métodos de busca;
