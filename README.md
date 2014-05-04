@@ -1,6 +1,12 @@
 transporte-cargo-ai
 ===================
 
+
+####TODO
+- Explicação extensa das 2 soluções;
+- Uma explicação clara da modelagem de estados;
+- As justificativas para as escolhas dos métodos de busca;
+
 ## Cenário
   
 Necessidade de transportar containers pela plataforma de transporte do porto
@@ -27,9 +33,9 @@ containers será transportado em função do excesso de peso.
 
 ### Busca Não Informada
 
-Consiste em fazer uma Busca em largura em todas as possiveis permutações
-dos grupos de containers e achar a permutação que não viola a restrição de peso
-máximo em cada grupo e tem o menos numeros de grupos de containers(plataformas).
+Consiste em fazer uma Busca em Largura em todas as possíveis permutações
+dos grupos de containers. Achar a permutação que não viola a restrição de peso
+máximo em cada grupo e tem o menor número de grupos de containers (plataformas).
 
 ### Busca Heurística
 
@@ -39,15 +45,14 @@ Ver vídeo para entender: https://www.youtube.com/watch?v=vUxhAmfXs2o
 
 ### Como rodar
 
-Linguagem: prolog.
-Compilador: swi-prolog.
+Linguagem: **prolog**
+
+Compilador: **swi-prolog**
 
 Em ambiente GNU/Unix com swipl instalado, rode:
 
+```
 swipl -f busca_heuristica.pl
 swipl -f busca_nao_informada.pl
+```
 
-TODO
-* Explicação extensa da solução
-* Uma explicação clara da modelagem de estados;
-* As justificativas para as escolhas dos métodos de busca;
