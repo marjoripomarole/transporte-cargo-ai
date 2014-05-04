@@ -4,22 +4,26 @@
 % Usando Best fit algorithm.
 % 
 
-cenarioBase(Plataformas) :-
-  solucao([], 15, Plataformas).
+% solução: []
+cenarioBase(P) :-
+  solucao([], 15, P).
 
-cenario1(_) :-
-  solucao([container(10)], 15, [plataforma(15, [container(10)])]).
+% solução: [plataforma(15, [container(10)])]
+cenario1(P) :-
+  solucao([container(10)], 15, P).
 
+% solução: [plataforma(15, [container(1), container(1)])]
 cenario2(P) :-
-  % P = [plataforma(15, [container(1), container(1)])],
   solucao([container(1), container(1)], 15, P).
 
-cenario3(_) :-
-  solucao([container(14), container(2)], 15, [plataforma(15, [container(14)]), plataforma(15, [container(2)])]).
+% solução: [plataforma(15, [container(2)]), plataforma(15, [container(14)])]
+cenario3(P) :-
+  solucao([container(14), container(2)], 15, P).
 
-cenario10(Plataformas) :-
+% solução: 
+cenario10(P) :-
   solucao([container(10), container(4), container(2), container(5), container(15),
-           container(3), container(2), container(7)], 15, Plataformas).
+           container(3), container(2), container(7)], 15, P).
 
 % Temos N números de containers sobrando para serem colocados.
 % solucao(Containers, PesoMaxPlataforma, Plataformas).
@@ -33,19 +37,20 @@ solucao([Container|Resto], PesoMax, Plataformas1) :-
 % adicionar o container e tem o menor número de capacidade restante.
 % colocarNasPlataformas(Plataformas, Container, PesoMax, NovaPlataformas).
 colocarNasPlataformas([], Container, PesoMax, [plataforma(PesoMax, [Container])]).
-colocarNasPlataformas(Plataformas, Container, PesoMax, [NovaP|ListSem]) :-
+colocarNasPlataformas(Plataformas, Container, PesoMax, NovaPlataformas) :-
   plataformaMaisPesada(Plataformas, PesoMax, MaiorP),
   MaiorP = plataforma(PesoMax, Cs),
-  NovaP = plataforma(PesoMax, [Container|Cs]), % Nova plataforma com o container
-  delete(Plataformas, MaiorP, ListSem), !.
-colocarNasPlataformas(Plataformas, Container, PesoMax, NovaPs) :-
-  write('this happens when heaviest platform is not ideal').
+  (
+    plataforma(PesoMax, [Container|Cs]) ->
+      NovaP = plataforma(PesoMax, [Container|Cs]),
+      delete(Plataformas, MaiorP, ListSem),
+      NovaPlataformas = [NovaP|ListSem]
 
-% Retorna a plataforma com best fit para o Container na lista de Plataformas.
-% melhorPlataformaParaContainer(Plataformas, PesoMax, Container, MaiorP).
-% $melhorPlataformaParaContainer([], PM, Container, plataforma(PM, [Container])).
-% $melhorPlataformaParaContainer([P|Ps], _, Container, Melhor) :-
-
+  ;   delete(Plataformas, MaiorP, ListaSem),
+      colocarNasPlataformas(ListaSem, Container, PesoMax, NovaPlataformas1),
+      NovaPlataformas = [MaiorP|NovaPlataformas1], !
+  ).
+  
 % Encontra Plataforma com maior peso de carga
 % plataformaMaisPesada(Plataformas, PesoMax, MaiorP)
 plataformaMaisPesada([], PM, plataforma(PM, [])).
