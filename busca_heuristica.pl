@@ -7,22 +7,36 @@
 cenarioBase(Plataformas) :-
   solucao([], 15, Plataformas).
 
-cenario1(Plataformas) :-
-  solucao([10, 4, 2, 5, 15, 3, 2, 7], 15, Plataformas).
+cenario1(_) :-
+  solucao([container(10)], 15, [plataforma(15, [container(10)])]).
+
+cenario2(_) :-
+  solucao([container(1), container(1)], 15, [plataforma(15, [container(1), container(1)])]).
+
+cenario3(_) :-
+  solucao([container(14), container(2)], 15, [plataforma(15, [container(14)]), plataforma(15, [container(2)])]).
+
+cenario10(Plataformas) :-
+  solucao([container(10), container(4), container(2), container(5), container(15),
+           container(3), container(2), container(7)], 15, Plataformas).
 
 % Temos N números de containers sobrando para serem colocados.
 % solucao(Containers, PesoMaxPlataforma, Plataformas).
-solucao([], PesoMax, plataforma(PesoMax, [])).
-solucao([container(X)|Resto], PesoMax, Plataformas) :-
-  colocarNasPlataformas(Plataformas, container(X), PesoMax, Melhor).
+solucao([], _, []).
+solucao([Container|Resto], PesoMax, Plataformas1) :-
+  solucao(Resto, PesoMax, Plataformas),
+  colocarNasPlataformas(Plataformas, Container, PesoMax, Plataformas1).
 
 % A melhor plataforma com peso máximo é a que consegue
 % adicionar o container e tem o menor número de capacidade restante.
 % colocarNasPlataformas(Plataformas, Container, PesoMax, NovaPlataformas).
 colocarNasPlataformas([], Container, PesoMax, [plataforma(PesoMax, [Container])]).
-%colocarNasPlataformas([P|Ps], Container, PesoMax, NovaPs) :-
-  %P is plataforma(PesoMax, [Container|Cs])
-  %plataformaMaisPesada(P, [P|PS]
+colocarNasPlataformas(Plataformas, Container, PesoMax, NovaPs) :-
+  plataformaMaisPesada(Plataformas, PesoMax, MaiorP),
+  MaiorP = plataforma(PesoMax, Cs),
+  NovaP = plataforma(PesoMax, [Container|Cs]),
+  write('MaiorP'), write(MaiorP), nl,
+  write('NovaP'), write(NovaP), nl.
 
 % Encontra Plataforma com maior peso de carga
 % plataformaMaisPesada(Plataformas, PesoMax, MaiorP)
@@ -35,7 +49,7 @@ plataformaMaisPesada([MaiorP|Ps], PM, MaiorP) :-
   somarContainers(Containers, Soma),
   somarContainers(Containers1, Soma1),
   Soma >= Soma1, !.
-plataformaMaisPesada([P|Ps], _, MaiorP) :-
+plataformaMaisPesada([_|Ps], _, MaiorP) :-
   plataformaMaisPesada(Ps, _, MaiorP).
 
 % Dado uma lista de containers, retorna a soma de seus pesos.
@@ -52,6 +66,6 @@ container(Peso) :- Peso @> 0, Peso @< 100.
 % Uma plataforma tem um peso máximo e N containers com pesos.
 % Soma dos containers é menor que o peso máximo.
 plataforma(0, []).
-plataforma(Peso, Containers) :-
+plataforma(PesoMax, Containers) :-
   somarContainers(Containers, Soma),
-  Soma @=< Peso. 
+  Soma @=< PesoMax. 
