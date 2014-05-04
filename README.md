@@ -33,7 +33,7 @@ containers será transportado em função do excesso de peso.
 
 ### Busca Não Informada
 
-Consiste em fazer uma Busca em Largura em todas as possíveis permutações
+Consiste em fazer uma Busca em Largura em todas as possíveis combinações
 dos grupos de containers. Achar a permutação que não viola a restrição de peso
 máximo em cada grupo e tem o menor número de grupos de containers (plataformas).
 
