@@ -2,7 +2,7 @@ transporte-cargo-ai
 ===================
 
 
-####TODO
+#### TODO
 - Explicação extensa das 2 soluções;
 - Uma explicação clara da modelagem de estados;
 - As justificativas para as escolhas dos métodos de busca;
@@ -14,8 +14,8 @@ em menor viagens possíveis para o navio cargueiro.
 
 ## Especificação do Problema
 
-A plataforma de transporte possue restrições quanto ao peso e volume máximos
-transportados. Os containers variam em seus pesos.
+A plataforma de transporte possue restrições quanto ao peso máximo
+transportado. Os containers variam em seus pesos.
 
 Temos de buscar a melhor combinação entre os containers transportados por
 uma determinada vez na plataforma, de forma que sempre sejam transportados
