@@ -29,7 +29,6 @@ cenario10(P) :-
 % solucao(Containers, PesoMaxPlataforma, Plataformas).
 solucao([], _, []).
 solucao([Container|Resto], PesoMax, Plataformas1) :-
-  % write('P1 '), write(Plataformas1), nl, 
   solucao(Resto, PesoMax, Plataformas),
   colocarNasPlataformas(Plataformas, Container, PesoMax, Plataformas1).
 
