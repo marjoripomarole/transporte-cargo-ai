@@ -23,3 +23,7 @@ pela plataforma de transporte. Exemplo: não há vantagem em transportar primeir
 os containers mais leves, deixando os mais pesados por último, pois no começo
 transportaremos o maior número possível de containers mas, no final, somente
 um pequeno número de containers será transportado em função do excesso de peso.
+
+### Implementação 
+
+Usando Best First Algorithm.
