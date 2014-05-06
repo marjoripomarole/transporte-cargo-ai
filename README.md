@@ -41,7 +41,7 @@ O **estado final** resulta na lista de containers vazia e a lista de plataforma 
 
 ### Busca Não Informada
 
-Consiste em fazer uma Busca em Largura em todas as possíveis combinações
+Consiste em fazer uma Busca em Profundidade em todas as possíveis combinações
 dos grupos de containers. Achar a permutação que não viola a restrição de peso
 máximo em cada grupo e tem o menor número de grupos de containers (plataformas).
 
