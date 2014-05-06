@@ -32,7 +32,7 @@ containers será transportado em função do excesso de peso.
 
 O **estado inicial** do problema é uma lista de containers com diferentes pesos e uma lista vazia de plataformas.
 
-Uma **plataforma** tem uma restrição de peso máximo e pode suportar N containers, contato que a soma dos pesos dos N containers seja menor ou igual ao peso máximo.
+Uma **plataforma** tem uma restrição de peso máximo e pode suportar N containers, contanto que a soma dos pesos dos N containers seja menor ou igual ao peso máximo.
 
 O **estado final** resulta na lista de containers vazia e a lista de plataforma completa com o menor número de plataformas que consigam levar os containers da primeira lista.
 
@@ -47,7 +47,7 @@ máximo em cada grupo e tem o menor número de grupos de containers (plataformas
 
 ### Busca Heurística
 
-Algoritmo greedy usado é o Best First.
+Algoritmo guloso usado é o Best First.
 
 A transição de um estado para o outro na busca representa a tentativa de colocar um container dentro de uma plataforma. Essa escolha é informada pela soma total do peso de cada container já dentro das plataformas. Sabendo dessa informação, o algoritmo vai seguir para o próximo estado que coloca o container na plataforma mais pesada que ainda suporta o peso do container em questão. Se não existir nenhuma plataforma que mantenha esses critérios, a busca segue para o estado com o container em outra plataforma.
 
@@ -61,7 +61,7 @@ No primeiro estado, imagem da esquerda, estamos tentando adicionar o container c
 
 ![Algoritmo Best Fit](http://atadosapp.s3.amazonaws.com/best-fit.png)
 
-Se tivermos k containers para serem transportados. Mémoria usada sera O(k) e o complexidade é O(k).
+Se tivermos k containers para serem transportados. Memória usada sera O(k) e o complexidade é O(k).
 
 Esse algoritmo não promete sempre a solução perfeita de menor containers, pois depende da ordem inicial da lista de containers. Mas oferece a melhor opção na maioria das vezes, com resultados melhores que a heurística usada pela outra alternativa, o algoritmo greedy First Fit. O first fit tenta colocar o container na primeira plataforma que ainda tem espaço na lista. Mas nem sempre a primeira plataforma que tem espaço é a melhor opção. A melhor opção seria a que potencialmente vai diminuiar a criação de outra plataforma.
 
