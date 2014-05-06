@@ -28,12 +28,14 @@ cenario10(P) :-
            container(3), container(2), container(7)], 15, P).
 
 % Temos N números de containers sobrando para serem colocados.
+% Plataformas é a lista de solução final.
 % solucao(Containers, PesoMaxPlataforma, Plataformas).
 solucao([], _, []).
 solucao([Container|Resto], PesoMax, Plataformas1) :-
   solucao(Resto, PesoMax, Plataformas),
   colocarNasPlataformas(Plataformas, Container, PesoMax, Plataformas1).
 
+% Coloca Container na lista de Plataformas e retorna na Nova Plataformas.
 % A melhor plataforma é a que consegue
 % adicionar o container e tem o menor número de capacidade restante.
 % colocarNasPlataformas(Plataformas, Container, PesoMax, NovaPlataformas).
@@ -52,7 +54,7 @@ colocarNasPlataformas(Plataformas, Container, PesoMax, NovaPlataformas) :-
       NovaPlataformas = [MaiorP|NovaPlataformas1], !
   ).
   
-% Encontra Plataforma com maior peso de carga
+% Encontra Plataforma mais pesada.
 % plataformaMaisPesada(Plataformas, PesoMax, MaiorP)
 plataformaMaisPesada([], PM, plataforma(PM, [])).
 plataformaMaisPesada([P], _, P) :- !.
