@@ -9,6 +9,3 @@ cumulativeWeight([], 0).
 cumulativeWeight([Head|Tail], TotalSum) :-
     cumulativeWeight(Tail, Sum),
     TotalSum is Head + Sum.
-
-
-
