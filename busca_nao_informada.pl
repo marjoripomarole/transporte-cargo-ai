@@ -1,5 +1,6 @@
 % Grupo: 
 % Bruno Ricardo Siqueira 4953672
+% Fernando Pereira Lisboa 7656241
 % Lucas Macedo De Lemos 6920122
 % Marjori Pomarole 7152013
 % Rosaldo Alves 6309280
@@ -58,6 +59,6 @@ edgeTest1([[4],[]],[[4,5],[]]).
 edgeTest1([[],[4]],[[5],[4]]).
 edgeTest1([[],[4]],[[],[4,5]]).
 
-final([[5,4],[]]).
-final([[],[5,4]]).
+final1([[5,4],[]]).
+final1([[],[5,4]]).
 % ------------
