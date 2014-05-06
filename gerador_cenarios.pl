@@ -6,13 +6,18 @@
 %
 % Gerador automatizado de cenários.
 
-generateContainers(Num,Set) :-
+generateContainers(Num,Set,Range) :-
 	Num = 1,
-	randset(2,500,S),
-	append([S], [], Set).
+	randset(2,Range,S),
+	append([S],[],Set), !.
 
-generateContainers(N1,Set) :-
+generateContainers(N1,Set,Range) :-
 	N2 is N1 - 1,
-	generateContainers(N2,S1),
-	randset(2,500,S2),
-	append(S1, [S2], Set).
+	generateContainers(N2,S1,Range),
+	randset(2,Range,S2),
+	append(S1,[S2],Set).
+
+
+% Exemplo de uso:
+% ? - generateContainers(3,Set,15).
+% Set = [[12, 14], [8, 12], [5, 13]].
