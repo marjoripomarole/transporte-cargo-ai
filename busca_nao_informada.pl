@@ -61,25 +61,3 @@ edgeTest1([[],[4]],[[],[4,5]]).
 final([[5,4],[]]).
 final([[],[5,4]]).
 % ------------
-
-% Busca em profundidade cenário 2: 2 containers de pesos aleatórios,peso máximo
-% suportado pelas plataformas 10.
-test2(P) :-
-	depthFirst2([[],[]],P).
-depthFirst2(Head,[Head]) :-
-	final2(Head).
-depthFirst2(Head,[Head|Tail]) :-
-	step2(Head,H1),
-	depthFirst2(H1,Tail).
-step2(Head,H1) :-
-	edgeTest2(Head,H1).
-
-edgeTest2([[],[]]).
-edgeTest2(A,B) :-
-	generateContainers(2,4,Containers),
-	Containers = [Head|Tail],
-	edgeTest2([Head],Tail).
-
-final2([P]) :-
-	cumulativeWeight(P,S1),
-	S1 =< 10.
