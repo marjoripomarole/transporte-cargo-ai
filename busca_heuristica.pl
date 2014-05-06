@@ -1,8 +1,10 @@
-% Grupo: Marjori Pomarole, TODO
+% Grupo: 
+% Bruno Ricardo Siqueira 4953672
+% Lucas Macedo De Lemos 6920122
+% Marjori Pomarole NUSP
+% Rosaldo Alves 6309280
 %
-% Busca Heurística
-% Usando Best fit algorithm.
-% 
+% Busca heurística: usando o algoritmo best fit.
 
 % solução: []
 cenarioBase(P) :-
