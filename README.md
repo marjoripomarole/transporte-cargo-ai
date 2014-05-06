@@ -90,7 +90,7 @@ plataforma na lista Lp.
 
 Se tivermos k containers para serem transportados. Complexidade é O(klog(k)).
 
-Esse algoritmo não promete sempre a solução perfeita de menor containers, pois depende da ordem inicial da lista de containers. Mas oferece a melhor opção na maioria das vezes, com resultados melhores que a heurística usada pela outra alternativa, o algoritmo greedy First Fit. O first fit tenta colocar o container na primeira plataforma que ainda tem espaço na lista. Mas nem sempre a primeira plataforma que tem espaço é a melhor opção. A melhor opção seria a que potencialmente vai diminuiar a criação de outra plataforma.
+Esse algoritmo não promete sempre a solução perfeita de menor containers, pois depende da ordem inicial da lista de containers. Mas oferece a melhor opção na maioria das vezes, com resultados melhores que a heurística usada pela outra alternativa, a heuristica First Fit. O first fit tenta colocar o container na primeira plataforma que ainda tem espaço na lista. Mas nem sempre a primeira plataforma que tem espaço é a melhor opção. A melhor opção seria a que potencialmente vai diminuiar a criação de outra plataforma.
 
 ### Como rodar
 
