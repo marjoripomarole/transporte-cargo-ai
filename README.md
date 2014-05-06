@@ -4,7 +4,6 @@ transporte-cargo-ai
 
 #### TODO
 - Explicação extensa das 2 soluções;
-- Uma explicação clara da modelagem de estados;
 - As justificativas para as escolhas dos métodos de busca;
 
 ## Cenário
@@ -28,6 +27,15 @@ Não há vantagem em transportar primeiro os containers mais leves,
 deixando os mais pesados por último, pois no começo transportaremos o maior 
 número possível de containers mas, no final, somente um pequeno número de
 containers será transportado em função do excesso de peso.
+
+## Modelagem de Estados
+
+O **estado inicial** do problema é uma lista de containers com diferentes pesos e uma lista vazia de plataformas.
+
+Uma **plataforma** tem uma restrição de peso máximo e pode suportar N containers, contato que a soma dos pesos dos N containers seja menor ou igual ao peso máximo.
+
+O **estado final** resulta na lista de containers vazia e a lista de plataforma completa com o menor número de plataformas que consigam levar os containers da primeira lista.
+
 
 ## Implementação 
 
