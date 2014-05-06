@@ -59,7 +59,7 @@ A figura abaixo visualiza a transição de um estado para o outro.
 
 No primeiro estado, imagem da esquerda, estamos tentando adicionar o container com peso 12 em alguma plataforma. A plataforma com maior peso é a primeira, mas não oferece espaço. A terceira plataforma é a próxima a ser avaliada e também é inválida porque não tem espaço. O mesmo acontece com a segunda plataforma. Por causa dessa heuristica, o unico caminho a ser seguido é de colocar o container em uma nova plataforma. O próximo estado tem a plataforma tirada da lista Lc e colocada em uma plataforma na lista Lp.
 
-![http://atadosapp.s3.amazonaws.com/best-fit.png](http://)
+![Algoritmo Best Fit](http://atadosapp.s3.amazonaws.com/best-fit.png)
 
 Se tivermos k containers para serem transportados. Mémoria usada sera O(k) e o complexidade é O(k).
 
