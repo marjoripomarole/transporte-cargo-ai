@@ -63,7 +63,7 @@ No primeiro estado, imagem da esquerda, estamos tentando adicionar o container c
 
 Se tivermos k containers para serem transportados. Mémoria usada sera O(k) e o complexidade é O(k).
 
-Esse algoritmo não promete sempre a solução perfeita de menor containers, pois depende da ordem inicial da lista de containers. Mas oferece a melhor opção na maioria das vezes, com resultados melhores que a heuristica usada pela outra alternativa, o algoritmo greedy Best Fit. O best fit tenta colocar o container na primeira plataforma que ainda tem espaço na lista. Mas nem sempre a plataforma primeira que tem espaço é melhor opção. A melhor opção seria a que potencialmente vai diminuiar a criação de outra plataforma.
+Esse algoritmo não promete sempre a solução perfeita de menor containers, pois depende da ordem inicial da lista de containers. Mas oferece a melhor opção na maioria das vezes, com resultados melhores que a heurística usada pela outra alternativa, o algoritmo greedy First Fit. O first fit tenta colocar o container na primeira plataforma que ainda tem espaço na lista. Mas nem sempre a primeira plataforma que tem espaço é a melhor opção. A melhor opção seria a que potencialmente vai diminuiar a criação de outra plataforma.
 
 ### Como rodar
 
