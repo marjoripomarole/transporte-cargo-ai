@@ -3,8 +3,8 @@ transporte-cargo-ai
 
 
 #### TODO
-- Explicação extensa das 2 soluções;
-- As justificativas para as escolhas dos métodos de busca;
+- Explicação extensa da solução não informada com justificativa de complexidade;
+- As justificativas da solução não informada;
 
 ## Cenário
   
@@ -47,9 +47,23 @@ máximo em cada grupo e tem o menor número de grupos de containers (plataformas
 
 ### Busca Heurística
 
-Usando algoritmo do Best First.
+Algoritmo greedy usado é o Best First.
 
-Ver vídeo para entender: https://www.youtube.com/watch?v=vUxhAmfXs2o
+A transição de um estado para o outro na busca representa a tentativa de colocar um container dentro de uma plataforma. Essa escolha é informada pela soma total do peso de cada container já dentro das plataformas. Sabendo dessa informação, o algoritmo vai seguir para o próximo estado que coloca o container na plataforma mais pesada que ainda suporta o peso do container em questão. Se não existir nenhuma plataforma que mantenha esses critérios, a busca segue para o estado com o container em outra plataforma.
+
+A figura abaixo visualiza a transição de um estado para o outro. 
+
+**Lc** representa a lista de containers que ainda precisam ser posicionados. Um integer representa seu peso máximo.
+
+**Lp** representa a lista de plataformas com seus containers.
+
+No primeiro estado, imagem da esquerda, estamos tentando adicionar o container com peso 12 em alguma plataforma. A plataforma com maior peso é a primeira, mas não oferece espaço. A terceira plataforma é a próxima a ser avaliada e também é inválida porque não tem espaço. O mesmo acontece com a segunda plataforma. Por causa dessa heuristica, o unico caminho a ser seguido é de colocar o container em uma nova plataforma. O próximo estado tem a plataforma tirada da lista Lc e colocada em uma plataforma na lista Lp.
+
+![http://atadosapp.s3.amazonaws.com/best-fit.png](http://)
+
+Se tivermos k containers para serem transportados. Mémoria usada sera O(k) e o complexidade é O(k).
+
+Esse algoritmo não promete sempre a solução perfeita de menor containers, pois depende da ordem inicial da lista de containers. Mas oferece a melhor opção na maioria das vezes, com resultados melhores que a heuristica usada pela outra alternativa, o algoritmo greedy Best Fit. O best fit tenta colocar o container na primeira plataforma que ainda tem espaço na lista. Mas nem sempre a plataforma primeira que tem espaço é melhor opção. A melhor opção seria a que potencialmente vai diminuiar a criação de outra plataforma.
 
 ### Como rodar
 
@@ -60,7 +74,13 @@ Compilador: **swi-prolog**
 Em ambiente GNU/Unix com swipl instalado, rode:
 
 ```
-swipl -f busca_heuristica.pl
 swipl -f busca_nao_informada.pl
 ```
+
+```
+swipl -f busca_heuristica.pl
+?- cenario10(P).
+P = [plataforma(15, [container(15)]), plataforma(15, [container(2), container(3), container(2), container(7)]), plataforma(15, [container(4), container(5)]), plataforma(15, [container(10)])] 
+```
+
 
