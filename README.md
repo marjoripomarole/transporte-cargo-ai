@@ -8,12 +8,13 @@ transporte-cargo-ai
 
 ## Cenário
   
-Necessidade de transportar containers pela plataforma de transporte do porto
-em menor viagens possíveis para o navio cargueiro.
+Necessidade de transportar containers utilizando uma plataforma de transporte 
+do porto respeitando sua restrição de capacidade no menor número de viagens 
+possíveis para o navio cargueiro.
 
 ## Especificação do Problema
 
-A plataforma de transporte possue restrições quanto ao peso máximo
+A plataforma de transporte possui restrições quanto ao peso máximo
 transportado. Os containers variam em seus pesos.
 
 Temos de buscar a melhor combinação entre os containers transportados por
@@ -40,7 +41,6 @@ O **estado final** resulta na lista de containers vazia e a lista de plataforma
 completa com o menor número de plataformas que consigam levar os containers da
 primeira lista.
 
-
 ## Implementação 
 
 ### Busca Não Informada
@@ -52,17 +52,9 @@ plataformas.
 
 Para exemplificar o problema de busca proposto, considere os seguintes cenários.
 
-```
-**Cenário 1**
+#### Cenário 1
 * 2 containers com pesos 5 e 4, respectivamente.
 * O peso máximo suportado pela plataforma é 10;
-
-```
-
-
-% Busca em profundidade cenário 1: 2 containers de peso 5 e 4,peso máximo
-% suportado pelas plataformas 10.
-
 
 ### Busca Heurística
 
