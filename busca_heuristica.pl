@@ -4,7 +4,7 @@
 % Marjori Pomarole 7152013
 % Rosaldo Alves 6309280
 %
-% Busca heurística: usando o algoritmo best fit.
+% Busca heurística: usando o algoritmo best first.
 
 % solução: []
 cenarioBase(P) :-
