@@ -56,7 +56,12 @@ Para exemplificar o problema de busca proposto, considere os seguintes cenários
 * 2 containers com pesos 5 e 4, respectivamente.
 * O peso máximo suportado pela plataforma é 10;
 
+#### Busca em Profundidade - Imagem 01
+
 ![Busca em Profundidade 01](http://brunoric.info/ia/busca_profundidade_img_01.png)
+
+#### Busca em Profundidade - Imagem 01
+
 ![Busca em Profundidade 02](http://brunoric.info/ia/busca_profundidade_img_02.png)
 
 
