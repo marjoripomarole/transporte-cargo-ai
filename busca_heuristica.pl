@@ -19,6 +19,9 @@ cenario1(P) :-
 cenario2(P) :-
   solucao([container(1), container(1)], 15, P).
 
+cenario4(P) :-
+  solucao([container(4), container(5)], 10, P).
+
 % solução: [plataforma(15, [container(2)]), plataforma(15, [container(14)])]
 cenario3(P) :-
   solucao([container(14), container(2)], 15, P).
